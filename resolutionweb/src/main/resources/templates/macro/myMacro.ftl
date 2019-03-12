@@ -16,10 +16,10 @@
 <#macro navbar>
     <!-- Barra navegacion -->
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/" style="text-decoration: none">FOY EVENTS</a></h5>
+    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/" style="text-decoration: none">INSTRUSSIONS!!</a></h5>
     <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="/allProducts">Ver todos los eventos</a>
-        <a class="p-2 text-dark" href="/addProduct">Añadir evento</a>
+        <a class="p-2 text dark" href="/allProducts">Veure totes les intrussions</a>
+        <a class="p-2 text-dark" href="/addProduct">Afegeix ip</a>
     </nav>
 </div>
 </#macro>
@@ -29,7 +29,7 @@
       <div class="container">
           <div class="row">
               <div class="col-xl-9 mx-auto">
-                  <h4 class="mb-3">BUSCADOR DE EVENTOS</h4>
+                  <h4 class="mb-3">CERCADOR D'INTRUSOS</h4>
               </div>
               <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                   <form action="/product/search" method="POST">
@@ -38,7 +38,7 @@
                               <input class="form-control form-control-lg" id="id" name="id" type="text" placeholder="Buscar evento por ID">
                           </div>
                           <div class="col-12 col-md-3">
-                              <button type="submit" class="btn btn-block btn-lg btn-primary">Buscar</button>
+                              <button type="submit" class="btn btn-block btn-lg btn-primary">Busca</button>
                           </div>
                       </div>
                   </form>
@@ -68,11 +68,11 @@
         <h1 class="card-title pricing-card-title">${elem.price!""} &euro;</h1>
         <ul class="list-unstyled mt-3 mb-4">
             <li>${elem.description!""}</li>
-            <li>Ubicación</li>
-            <li>Email</li>
-            <li>Teléfono</li>
+            <li>origen</li>
+            <li>entrada-ip</li>
+            <li>referència</li>
         </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Ir a evento</button>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Ir anar a un log</button>
     </#if>
         </div>
     </div>
@@ -84,39 +84,37 @@
         <div class="row">
             <div class="col-12 col-md">
                 <img class="mb-2" src="/img/foy.png" alt="foy" width="24" height="24">
-                <small class="d-block mb-3 text-muted">&copy; 2018-2019</small>
+                <small class="d-block mb-3 text-muted">&copy; 2019</small>
             </div>
             <div class="col-6 col-md">
-                <h5>Hoteles</h5>
+                <h5>IDS</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Hoteles España</a></li>
-                    <li><a class="text-muted" href="#">Hoteles Europa</a></li>
-                    <li><a class="text-muted" href="#">Hoteles en el mundo</a></li>
+                    <li><a class="text-muted" href="#">Snort</a></li>
+                    <li><a class="text-muted" href="#">Nagios</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md">
-                <h5>Restaurantes</h5>
+                <h5>Firewalls</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Encuentra los mejores sitios</a></li>
-                    <li><a class="text-muted" href="#">Reserva una mesa</a></li>
+                    <li><a class="text-muted" href="#">Iptables</a></li>
+                    <li><a class="text-muted" href="#">Comodo Firewall</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md">
-                <h5>Excursiones</h5>
+                <h5>Pentesting</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">¿Dónde quieres viajar?</a></li>
-                    <li><a class="text-muted" href="#">Más vendidas</a></li>
-                    <li><a class="text-muted" href="#">Más baratas</a></li>
-                    <li><a class="text-muted" href="#">Excursiones empresa</a></li>
+                    <li><a class="text-muted" href="#">Fins on aguanta la teva web?</a></li>
+                    <li><a class="text-muted" href="#">Atacs freqüents</a></li>
+                    <li><a class="text-muted" href="#">Altres opcions</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md">
-                <h5>¿Quiénes somos?</h5>
+                <h5>¿Qui som?</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Equipo</a></li>
-                    <li><a class="text-muted" href="#">Ubicaciones</a></li>
-                    <li><a class="text-muted" href="#">Privacidad</a></li>
-                    <li><a class="text-muted" href="#">Condiciones</a></li>
+                    <li><a class="text-muted" href="#">Equip</a></li>
+                    <li><a class="text-muted" href="#">Ubicacions</a></li>
+                    <li><a class="text-muted" href="#">Privacitat</a></li>
+                    <li><a class="text-muted" href="#">Condicions</a></li>
                 </ul>
             </div>
         </div>
