@@ -1,0 +1,5 @@
+<root>
+    <item name='java.lang.String boolean equals(java.lang.Object)'>
+        <annotation name='org.jetbrains.annotations.Blocking'/>
+    </item>
+</root>

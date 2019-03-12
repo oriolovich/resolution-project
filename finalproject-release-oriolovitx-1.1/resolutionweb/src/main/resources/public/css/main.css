@@ -1,0 +1,21 @@
+html {
+    font-size: 14px;
+}
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.margenTop {
+    margin-top: 25px;
+}
+
+.container {
+    max-width: 960px;
+    margin-top: 70px;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
