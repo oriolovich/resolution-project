@@ -3,26 +3,26 @@ package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 import org.apache.commons.lang3.StringUtils;
 import java.util.UUID;
 
-public class Product {
+public class Network {
 
     private String id;
-    private String name;
+    private String ip;
     private String description;
-    private String price;
+    private String domain;
 
-    public Product() {
+    public Network() {
         this.id = UUID.randomUUID().toString();
     }
 
-    public Product(String id, String name, String description, String price) {
+    public Network(String id, String ip, String description, String domain) {
         //this.id = id;
         if (StringUtils.isEmpty(id)){
             id = UUID.randomUUID().toString();
         }
         this.id = id;
-        this.name = name;
+        this.ip = ip;
         this.description = description;
-        this.price = price;
+        this.domain = domain;
     }
 
     public String getId() {
@@ -33,12 +33,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getIp() {
+        return ip;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIp(String ip) {
+        this.ip = ip;
     }
 
     public String getDescription() {
@@ -50,12 +50,10 @@ public class Product {
     }
 
 
-    public String getPrice() {
-        return price;
+    public String getDomain() { return domain;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setDomain(String domain) { this.domain = domain;
     }
 
 }
