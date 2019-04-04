@@ -41,7 +41,7 @@ public class NetworkService {
         networkList.add(network);
     }
 
-    /*Metodo actulizar pruducto*/
+    /*Métod actuliza xarxa*/
     public void updateNetwork(Network prod, String id) {
         for (int i = 0; i < networkList.size(); i++) {
             Network network = networkList.get(i);
