@@ -31,11 +31,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.3.0</version>
-        </dependency>
+
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
@@ -71,34 +67,6 @@
         </plugins>
     </reporting>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-             <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-war-plugin</artifactId>
-                     <version>3.0.0</version>
-                     <configuration>
-                         <archive>
-                             <manifest>
-                                 <addClasspath>true</addClasspath>
-                                 <classpathPrefix>lib/</classpathPrefix>
-                             </manifest>
-                         </archive>
-                         <webResources>
-                             <resource>
-                                 <directory>${project.basedir}/src/main/resources </directory>
-                             </resource>
-                         </webResources>
-                         <warName>mywar</warName>
-                     </configuration>
-             </plugin>
-
-        </plugins>
-    </build>
 
     <repositories>
         <repository>
