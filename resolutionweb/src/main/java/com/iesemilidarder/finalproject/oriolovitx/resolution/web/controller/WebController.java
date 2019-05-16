@@ -1,7 +1,8 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.web.controller;
 
-import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Network;
-import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.NetworkService;
+
+import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Opinions;
+import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.OpinionsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,62 +17,62 @@ import javax.validation.Valid;
 @Controller
 
 public class WebController {
-    protected final Logger log = LoggerFactory.getLogger(this.getClass());
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private NetworkService networkService;
+    private OpinionsService opinionsService;
 
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("network", networkService.getAllNetworks());
+        model.addAttribute("opinions", opinionsService.getAllOpinions());
         return "index";
     }
 
-    /*Visualitza totes les xarxes*/
-    @RequestMapping("/allNetworks")
-    public String getAllNetworks(@ModelAttribute("model") ModelMap model) {
-        model.addAttribute("network", networkService.getAllNetworks());
-        return "allNetworks";
+    /*Visualitza totes les opinions*/
+    @RequestMapping("/allOpinions")
+    public String getAllOpinions(@ModelAttribute("model") ModelMap model) {
+        model.addAttribute("opinions", opinionsService.getAllOpinions());
+        return "allOpinions";
     }
 
-    /*Visualitza producte via id - buscador*/
-    @RequestMapping("/network/search")
-    public String getNetwork(@RequestParam String id, Model model) {
+    /*Visualitza opinió via id - buscador*/
+    @RequestMapping("/opinions/search")
+    public String getOpinions(@RequestParam String id, Model model) {
         try {
-            Network n = networkService.getNetworkById(id);
-            if (n != null && n.getId().equals(id)) {
-                model.addAttribute("network", n);
+            Opinions o = opinionsService.getOpinionsById(id);
+            if (o != null && o.getId().equals(id)) {
+                model.addAttribute("opinions", o);
             }
         } catch (Exception e) {
             log.error("Valor introduït ivvàlid", e);
         }
-        return "product";
+        return "opinions";
     }
 
-    /*Formulari per afegir xarxes dins del array list */
+    /*Formulari per afegir opinions dins del array list */
 
-    @GetMapping("/addNetwork")
+    @GetMapping("/addOpinions")
     public String index() {
         return "redirect:/form";
     }
 
     @GetMapping("/form")
     public String formGet(Model model) {
-        model.addAttribute("product", new Network());
+        model.addAttribute("opinions", new Opinions());
         return "form";
     }
 
     @PostMapping("/form")
-    public String formPost(@Valid Network network, BindingResult bindingResult, Model model) {
+    public String formPost(@Valid Opinions opinions, BindingResult bindingResult, Model model) {
         try {
             model.addAttribute("noErrors", true);
-            if (networkService.getNetworkById(network.getId()) != null) {
-                networkService.updateNetwork(network, network.getId());
+            if (opinionsService.getOpinionsById(opinions.getId()) != null) {
+                opinionsService.updateOpinions(opinions,opinions.getId());
             } else if (!bindingResult.hasErrors()) {
-                networkService.addNetwork(network);
+                opinionsService.addOpinions(opinions);
             }
 
-            model.addAttribute("network", network);
+            model.addAttribute("opinions", opinions);
         } catch (Exception e) {
             log.error("Error", e);
         }
@@ -80,17 +81,17 @@ public class WebController {
     }
 
     /*Mostra actualizació formulari de l'usuari*/
-    @RequestMapping(value = "/network/{id}/update", method = RequestMethod.GET)
-    public String updateNetwork(@PathVariable("id") String id, Model model) {
-        Network network = networkService.getNetworkById(id);
-        model.addAttribute("network", network);
+    @RequestMapping(value = "/opinions/{id}/update", method = RequestMethod.GET)
+    public String updateOpinions(@PathVariable("id") String id, Model model) {
+        Opinions opinions = opinionsService.getOpinionsById(id);
+        model.addAttribute("opinions", opinions);
         return "/form";
     }
 
-    /*Elimina xarxa*/
-    @RequestMapping("/network/delete/{id}")
-    public String deleteNetwork(@PathVariable("id") String id, Model model) {
-        networkService.deleteNetwork(id);
-        return "redirect:/allNetworks";
+    /*Elimina opinio*/
+    @RequestMapping("/opinions/delete/{id}")
+    public String deleteOpinions(@PathVariable("id") String id, Model model) {
+        opinionsService.deleteOpinions(id);
+        return "redirect:/allOpinions";
     }
 }
