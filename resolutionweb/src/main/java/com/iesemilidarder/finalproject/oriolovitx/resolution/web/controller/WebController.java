@@ -1,8 +1,8 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.web.controller;
 
 
-import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Opinions;
-import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.OpinionsService;
+import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Restaurants;
+import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.RestaurantsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,59 +20,59 @@ public class WebController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private OpinionsService opinionsService;
+    private RestaurantsService restaurantsService;
 
     @RequestMapping("/")
     public String index(Model model) {
-        model.addAttribute("opinions", opinionsService.getAllOpinions());
+        model.addAttribute("restaurants", restaurantsService.getAllRestaurants());
         return "index";
     }
 
     /*Visualitza totes les opinions*/
-    @RequestMapping("/allOpinions")
-    public String getAllOpinions(@ModelAttribute("model") ModelMap model) {
-        model.addAttribute("opinions", opinionsService.getAllOpinions());
-        return "allOpinions";
+    @RequestMapping("/allRestaurants")
+    public String getAllRestaurants(@ModelAttribute("model") ModelMap model) {
+        model.addAttribute("restaurants", restaurantsService.getAllRestaurants());
+        return "allRestaurants";
     }
 
     /*Visualitza opinió via id - buscador*/
-    @RequestMapping("/opinions/search")
-    public String getOpinions(@RequestParam String id, Model model) {
+    @RequestMapping("/restaurants/search")
+    public String getRestuaurants(@RequestParam String id, Model model) {
         try {
-            Opinions o = opinionsService.getOpinionsById(id);
-            if (o != null && o.getId().equals(id)) {
-                model.addAttribute("opinions", o);
+            Restaurants t = restaurantsService.getRestaurantsById(id);
+            if (t!= null && t.getCodi().equals(id)) {
+                model.addAttribute("restaurants", t);
             }
         } catch (Exception e) {
             log.error("Valor introduït ivvàlid", e);
         }
-        return "opinions";
+        return "restaurants";
     }
 
     /*Formulari per afegir opinions dins del array list */
 
-    @GetMapping("/addOpinions")
+    @GetMapping("/addRestaurants")
     public String index() {
         return "redirect:/form";
     }
 
     @GetMapping("/form")
     public String formGet(Model model) {
-        model.addAttribute("opinions", new Opinions());
+        model.addAttribute("restaurants", new Restaurants());
         return "form";
     }
 
     @PostMapping("/form")
-    public String formPost(@Valid Opinions opinions, BindingResult bindingResult, Model model) {
+    public String formPost(@Valid Restaurants restaurants, BindingResult bindingResult, Model model){
         try {
             model.addAttribute("noErrors", true);
-            if (opinionsService.getOpinionsById(opinions.getId()) != null) {
-                opinionsService.updateOpinions(opinions,opinions.getId());
+            if (restaurantsService.getRestaurantsById(restaurants.getCodi())!= null) {
+                restaurantsService.updateRestaurants(restaurants, restaurants.getCodi());
             } else if (!bindingResult.hasErrors()) {
-                opinionsService.addOpinions(opinions);
+                restaurantsService.addRestaurants(restaurants);
             }
 
-            model.addAttribute("opinions", opinions);
+            model.addAttribute("restaurants", restaurants);
         } catch (Exception e) {
             log.error("Error", e);
         }
@@ -81,17 +81,17 @@ public class WebController {
     }
 
     /*Mostra actualizació formulari de l'usuari*/
-    @RequestMapping(value = "/opinions/{id}/update", method = RequestMethod.GET)
-    public String updateOpinions(@PathVariable("id") String id, Model model) {
-        Opinions opinions = opinionsService.getOpinionsById(id);
-        model.addAttribute("opinions", opinions);
+    @RequestMapping(value = "/restaurants/{id}/update", method = RequestMethod.GET)
+    public String updateRestaurants(@PathVariable("id") String id, Model model) {
+       Restaurants restaurants = restaurantsService.getRestaurantsById(id);
+        model.addAttribute("restaurants", restaurants);
         return "/form";
     }
 
     /*Elimina opinio*/
-    @RequestMapping("/opinions/delete/{id}")
-    public String deleteOpinions(@PathVariable("id") String id, Model model) {
-        opinionsService.deleteOpinions(id);
-        return "redirect:/allOpinions";
+    @RequestMapping("/restaurants/delete/{id}")
+    public String restaurantsDelete(@PathVariable("id") String id, Model model){
+        restaurantsService.deleteRestaurants(id);
+        return "redirect:/allRestaurants";
+        }
     }
-}

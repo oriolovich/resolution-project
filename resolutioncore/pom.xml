@@ -11,6 +11,11 @@
 
     <artifactId>resolution-core</artifactId>
     <dependencies>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
@@ -32,7 +37,7 @@
                         <version>2.5.2</version>
                         <configuration>
                             <groupId>com.oracle</groupId>
-                            <artifactId>ojdbc6</artifactId>
+                            <artifactId>ojdb6</artifactId>
                             <version>11.2.0.3</version>
                             <packaging>jar</packaging>
                             <file>ojdbc6-11.2.0.3.jar</file>
