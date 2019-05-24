@@ -4,11 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.UUID;
 
 
-public class Opinions {
-
-
-
-
+public class  Opinions extends Restaurants{
     private String id;
     private String observacio;
     private String puntuacio;
@@ -20,8 +16,7 @@ public class Opinions {
         this.id = UUID.randomUUID().toString();
     }
 
-    public
-    Opinions (String id, String observacio, String puntuacio, String oprevisada, String restcodi, String uscodi) {
+    public Opinions (String id, String observacio, String puntuacio, String oprevisada, String restcodi, String uscodi) {
         //this.id = id;
         if (StringUtils.isEmpty(id)) {
             id = UUID.randomUUID().toString();
