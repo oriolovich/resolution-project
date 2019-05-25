@@ -1,5 +1,5 @@
-# Detector d'IP sospitoses
+# Opinions sobre Restaurants de l'Illa de Mallorca
 
  - Fet a partir de spring-rest-mvc-basics
 
-- CRUD complet per a detecció de ip's no autoritzades a les nostra xarxa corporativa
+- CRUD complet per a valoracions de tota mena dels diferents restaurants de l'Illa de Mallorca
