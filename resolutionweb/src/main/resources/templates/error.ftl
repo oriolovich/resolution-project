@@ -10,8 +10,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 text-center">
                     <span class="display-1 d-block">404</span>
-                    <div class="mb-4 lead">No se encontró la página que busca.</div>
-                    <a href="/" class="btn btn-link">Volver a inicio</a>
+                    <div class="mb-4 lead"> Pàgina no localitzable.</div>
+                    <a href="/" class="btn btn-link">Torna al inici</a>
                 </div>
             </div>
         </div>

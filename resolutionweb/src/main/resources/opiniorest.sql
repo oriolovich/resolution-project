@@ -2,39 +2,15 @@
 --  DDL for Table COMANDES
 -- ------------------------------------------------------
 
-	CREATE TABLE `GESTIO`.`COMANDES`
+CREATE TABLE `GESTIO`.`COMANDES`
    (	`COM_ID` VARCHAR(10) COMMENT '',
 	`COM_DATE` DATETIME COMMENT '',
-	`COM_TYPE` VARCHAR(1) COMMENT'',
+	`COM_TYPE` VARCHAR(1) COMMENT '',
 	`COM_TOTAL` DECIMAL(7,2) COMMENT ''
    )
   ;
 
 
-	CREATE TABLE `GESTIO`.`LOG_COMANDES`
-   (	`LOG_ID` VARCHAR(10)COMMENT'',
-	`LOG_USUA` VARCHAR(100) COMMENT'',
-	`LOG_DATA` DATETIME COMMENT '',
-	`LOG_TIPUS` VARCHAR(1) COMMENT '',
-	`LOG_DESCRIPCION` VARCHAR(100) COMMENT '',
-	`LOG_INV_ID` VARCHAR(10) COMMENT''
-   )
-  ;
-------------------------------------------------------------
---  DDL for Table TREBALLADORS
--- ------------------------------------------------------
-
- 	CREATE TABLE `GESTIO`.`TREBALLADORS`
-   (	`TRE_CODI_RES` VARCHAR(6) COMMENT '',
-	`TRE_NOM_RES` VARCHAR(20) COMMENT '',
-	`TRE_CODI` VARCHAR(8) COMMENT '',
-	`TRE_NOM` VARCHAR(20) COMMENT '',
-	`TRE_LLINATGE` VARCHAR(20) COMMENT '',
-	`TRE_EMAIL` VARCHAR(20) COMMENT '',
-	`TRE_TELEFON` VARCHAR(20) COMMENT '',
-	`TRE_EXPERIENCIA` TIMESTAMP  COMMENT ''
-   )
-  ;
 -- ------------------------------------------------------
 --  DDL for Table OPINIONS
 -- ------------------------------------------------------
@@ -48,37 +24,21 @@
 	`OPI_USU_CODI` VARCHAR(3) COMMENT ''
    )
   ;
+RENAME TABLE
+
 -- ------------------------------------------------------
---  DDL for Table FACTURES
+--  DDL for Table LOG_COMANDES
 -- ------------------------------------------------------
 
-  CREATE TABLE `GESTIO`.`FACTURES`
-   (	`FAC_CODI` VARCHAR(3) COMMENT '',
-	`FAC_DATA_FACTURA` DATETIME COMMENT '',
-	`FAC_TOTAL_A_PAGAR` DECIMAL(7,2) COMMENT '',
-	`FAC_RES_CODI` VARCHAR(3) COMMENT '',
-	`FAC_IMPRESA` VARCHAR(1) DEFAULT 'N' COMMENT ''
+  CREATE TABLE `GESTIO`.`LOG_COMANDES`
+   (	`LOG_ID` VARCHAR(10) COMMENT  '',
+	`LOG_USUA` VARCHAR(100) COMMENT '',
+	`LOG_DATA` DATETIME COMMENT '',
+	`LOG_TIPUS` VARCHAR(1) COMMENT '',
+	`LOG_DESCRIPCION` VARCHAR(100) COMMENT '',
+	`LOG_INV_ID` VARCHAR(10) COMMENT ''
    )
   ;
-  --------------------------------------------------------
---  DDL for Table IMATGES
---------------------------------------------------------
-
-  CREATE TABLE `GESTIO`.`IMATGES`
-   (	`IMG_CODI` VARCHAR(3) COMMENT '',
-	 `IMG_PATH` VARCHAR(30) COMMENT '',
-	 `IMG_IMATGE`  COMMENT '',
-	`IMG_RES_CODI` VARCHAR(3) COMMENT ''
-   ) SEGMENT CREATION IMMEDIATE
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 106496 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "DADES"
- GLOB (`IMG_IMATGE`) STORE AS BASICFILE (
-  TABLESPACE "SYSTEM" ENABLE STORAGE IN ROW CHUNK 8192 RETENTION
-  NOCACHE LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)) ;
 -- ------------------------------------------------------
 --  DDL for Table POPINIONS
 -- ------------------------------------------------------
@@ -92,6 +52,20 @@
 	`POP_PROV_CODI` VARCHAR(3) COMMENT ''
    )
   ;
+-- ------------------------------------------------------
+--  DDL for Table FACTURES
+-- ------------------------------------------------------
+
+  CREATE TABLE `GESTIO`.`FACTURES`
+   (	`FAC_CODI` VARCHAR(3) COMMENT '',
+	`FAC_DATA_FACTURA` DATETIME  COMMENT '',
+	`FAC_TOTAL_A_PAGAR` DECIMAL(7,2) COMMENT '',
+	`FAC_RES_CODI` VARCHAR(3) COMMENT '',
+	`FAC_IMPRESA` VARCHAR(1) DEFAULT 'N' COMMENT ''
+   )
+  ;
+
+
 -- ------------------------------------------------------
 --  DDL for Table PROVEIDORS
 -- ------------------------------------------------------
@@ -141,7 +115,6 @@
   ;
 
 
-
 -- ------------------------------------------------------
 --  DDL for Table TOPINIONS
 -- ------------------------------------------------------
@@ -156,7 +129,7 @@
    )
   ;
 
-/* Moved to CREATE TABLE
+   /* Moved to CREATE TABLE
 COMMENT ON COLUMN `GESTIO`.`TOPINIONS`.`TOP_CODI` IS ''; */
 /* Moved to CREATE TABLE
 COMMENT ON COLUMN `GESTIO`.`TOPINIONS`.`TOP_OBSERVACIO` IS ''; */
@@ -169,6 +142,21 @@ COMMENT ON COLUMN `GESTIO`.`TOPINIONS`.`TOP_RES_CODI` IS ''; */
 /* Moved to CREATE TABLE
 COMMENT ON COLUMN `GESTIO`.`TOPINIONS`.`TOP_USU_CODI` IS ''; */
 ALTER TABLE `GESTIO`.`TOPINIONS`  COMMENT 'Opinions';
+-- ------------------------------------------------------
+--  DDL for Table TREBALLADORS
+-- ------------------------------------------------------
+
+CREATE TABLE `GESTIO`.`TREBALLADORS`
+(	`TRE_CODI_RES` VARCHAR(6),
+`TRE_NOM_RES` VARCHAR(20),
+`TRE_CODI` VARCHAR(8),
+`TRE_NOM` VARCHAR(20),
+`TRE_LLINATGE` VARCHAR(20),
+`TRE_EMAIL` VARCHAR(20),
+`TRE_TELEFON` VARCHAR(20),
+`TRE_EXPERIENCIA` DATETIME (6)
+)
+;
 -- ------------------------------------------------------
 --  DDL for Table USUARIS
 -- ------------------------------------------------------
@@ -185,30 +173,6 @@ CREATE TABLE `GESTIO`.`USUARIS`
 -- ------------------------------------------------------
 
 CREATE UNIQUE INDEX `GESTIO`.`COM_PK` ON `GESTIO`.`COMANDES` (`COM_ID`)
-;
--- ------------------------------------------------------
---  DDL for Index LOG_PK
--- ------------------------------------------------------
-
-CREATE UNIQUE INDEX `GESTIO`.`LOG_PK` ON `GESTIO`.`LOG_COMANDES` (`LOG_ID`)
-;
--- ------------------------------------------------------
---  DDL for Index IMATGES_IMG_CODI_IDX
--- ------------------------------------------------------
-
-CREATE UNIQUE INDEX `GESTIO`.`IMATGES_IMG_CODI_IDX` ON `GESTIO`.`IMATGES` (`IMG_CODI`)
-;
--- ------------------------------------------------------
---  DDL for Index IMATGES_IMG_RES_CODI_IDX
--- ------------------------------------------------------
-
-CREATE INDEX `GESTIO`.`IMATGES_IMG_RES_CODI_IDX` ON `GESTIO`.`IMATGES` (`IMG_RES_CODI`)
-;
--- ------------------------------------------------------
---  DDL for Index TRE_CODI_RES
--- ------------------------------------------------------
-
-CREATE UNIQUE INDEX `GESTIO`.`TRE_CODI_RES` ON `GESTIO`.`TREBALLADORS` (`TRE_CODI_RES`)
 ;
 -- ------------------------------------------------------
 --  DDL for Index OPINIONS_OPI_CODI_IDX
@@ -229,6 +193,18 @@ CREATE INDEX `GESTIO`.`OPINIONS_OPI_RES_CODI_IDX` ON `GESTIO`.`OPINIONS` (`OPI_R
 CREATE INDEX `GESTIO`.`OPINIONS_OPI_USU_CODI_IDX` ON `GESTIO`.`OPINIONS` (`OPI_USU_CODI`)
 ;
 -- ------------------------------------------------------
+--  DDL for Index LOG_PK
+-- ------------------------------------------------------
+
+CREATE UNIQUE INDEX `GESTIO`.`LOG_PK` ON `GESTIO`.`LOG_COMANDES` (`LOG_ID`)
+;
+-- ------------------------------------------------------
+--  DDL for Index POPINIONS_PK
+-- ------------------------------------------------------
+
+CREATE UNIQUE INDEX `GESTIO`.`POPINIONS_PK` ON `GESTIO`.`POPINIONS` (`POP_PROV_CODI`)
+;
+-- ------------------------------------------------------
 --  DDL for Index FACTURES_FAC_CODI_IDX
 -- ------------------------------------------------------
 
@@ -239,12 +215,6 @@ CREATE UNIQUE INDEX `GESTIO`.`FACTURES_FAC_CODI_IDX` ON `GESTIO`.`FACTURES` (`FA
 -- ------------------------------------------------------
 
 CREATE INDEX `GESTIO`.`FACTURES_FAC_RES_CODI_IDX` ON `GESTIO`.`FACTURES` (`FAC_RES_CODI`)
-;
--- ------------------------------------------------------
---  DDL for Index POPINIONS_PK
--- ------------------------------------------------------
-
-CREATE UNIQUE INDEX `GESTIO`.`POPINIONS_PK` ON `GESTIO`.`POPINIONS` (`POP_PROV_CODI`)
 ;
 -- ------------------------------------------------------
 --  DDL for Index PROV_CODI_PK
@@ -289,24 +259,17 @@ CREATE INDEX `GESTIO`.`TICKETS_TCK_RES_CODI_IDX` ON `GESTIO`.`TICKETS` (`TCK_RES
 CREATE UNIQUE INDEX `GESTIO`.`TOP_CODI_PK` ON `GESTIO`.`TOPINIONS` (`TOP_CODI`)
 ;
 -- ------------------------------------------------------
+--  DDL for Index TRE_CODI_RES
+-- ------------------------------------------------------
+
+CREATE UNIQUE INDEX `GESTIO`.`TRE_CODI_RES` ON `GESTIO`.`TREBALLADORS` (`TRE_CODI_RES`)
+;
+-- ------------------------------------------------------
 --  DDL for Index USUARIS_USU_CODI_IDX
 -- ------------------------------------------------------
 
 CREATE UNIQUE INDEX `GESTIO`.`USUARIS_USU_CODI_IDX` ON `GESTIO`.`USUARIS` (`USU_CODI`)
 ;
---
--- ------------------------------------------------------
---  DDL for Trigger TRIG_LOG
--- ------------------------------------------------------
-
-CREATE OR REPLACE TRIGGER `GESTIO`.`TRIG_LOG`
-BEFORE INSERT ON LOG_COMANDES
-FOR EACH ROW
-BEGIN
-Set :new.log_id =seq_log.NEXTVAL;
-END;
-/
-ALTER TRIGGER `GESTIO`.`TRIG_LOG` ENABLE;
 -- ------------------------------------------------------
 --  DDL for Trigger TRG_OPI
 -- ------------------------------------------------------
@@ -336,8 +299,22 @@ res_mitjana = v_calcul
 WHERE res_codi = IFNULL(:old.opi_res_codi,:new.opi_res_codi);
 END;
 END;
+
 /
 ALTER TRIGGER `GESTIO`.`TRG_OPI` ENABLE;
+-- ------------------------------------------------------
+--  DDL for Trigger TRIG_LOG
+-- ------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER `GESTIO`.`TRIG_LOG`
+BEFORE INSERT ON LOG_COMANDES
+FOR EACH ROW
+BEGIN
+Set :new.log_id =seq_log.NEXTVAL;
+END;
+
+/
+ALTER TRIGGER `GESTIO`.`TRIG_LOG` ENABLE;
 -- ------------------------------------------------------
 --  DDL for Trigger TRG_RES
 -- ------------------------------------------------------
@@ -350,6 +327,7 @@ BEGIN
 Set :new.res_codi=seq_res.NEXTVAL;
 
 END;
+
 /
 ALTER TRIGGER `GESTIO`.`TRG_RES` ENABLE;
 -- ------------------------------------------------------
@@ -364,6 +342,7 @@ BEGIN
 Set :new.usu_codi=seq_usu.NEXTVAL;
 
 END;
+
 /
 ALTER TRIGGER `GESTIO`.`TRG_USU` ENABLE;
 -- ------------------------------------------------------
@@ -375,29 +354,6 @@ ALTER TABLE `GESTIO`.`COMANDES` ADD CONSTRAINT `INV_PK` PRIMARY KEY (`COM_ID`)
 STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
 TABLESPACE `SYSTEM`  ENABLE;
--- ------------------------------------------------------
---  Constraints for Table LOG_COMANDES
--- ------------------------------------------------------
-
-ALTER TABLE `GESTIO`.`LOG_COMANDES` ADD CONSTRAINT `LOG_PK` PRIMARY KEY (`LOG_ID`)
-10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
-STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-TABLESPACE `SYSTEM`  ENABLE;
--- ------------------------------------------------------
---  Constraints for Table TREBALLADORS
--- ------------------------------------------------------
-
-ALTER TABLE `GESTIO`.`TREBALLADORS` ADD CONSTRAINT `TRE_CODI_RES` PRIMARY KEY (`TRE_CODI_RES`)
-10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
-STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-TABLESPACE `SYSTEM`  ENABLE;
-ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_LLINATGE` NOT NULL ENABLE);
-ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_NOM` NOT NULL ENABLE);
-ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_CODI` NOT NULL ENABLE);
-ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_NOM_RES` NOT NULL ENABLE);
-ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_CODI_RES` NOT NULL ENABLE);
 -- ------------------------------------------------------
 --  Constraints for Table OPINIONS
 -- ------------------------------------------------------
@@ -415,20 +371,14 @@ ALTER TABLE `GESTIO`.`OPINIONS` MODIFY (`OPI_PUNTUACIO` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`OPINIONS` MODIFY (`OPI_OBSERVACIO` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`OPINIONS` MODIFY (`OPI_CODI` NOT NULL ENABLE);
 -- ------------------------------------------------------
---  Constraints for Table FACTURES
+--  Constraints for Table LOG_COMANDES
 -- ------------------------------------------------------
 
-ALTER TABLE `GESTIO`.`FACTURES` ADD CONSTRAINT `CK_FAC` CHECK (fac_impresa IN ('S','N'));
-ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_IMPRESA` NOT NULL ENABLE);
-ALTER TABLE `GESTIO`.`FACTURES` ADD CONSTRAINT `FAC_FACTURES_PK` PRIMARY KEY (`FAC_CODI`)
+ALTER TABLE `GESTIO`.`LOG_COMANDES` ADD CONSTRAINT `LOG_PK` PRIMARY KEY (`LOG_ID`)
 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
 STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
 PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
 TABLESPACE `SYSTEM`  ENABLE;
-ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_RES_CODI` NOT NULL ENABLE);
-ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_TOTAL_A_PAGAR` NOT NULL ENABLE);
-ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_DATA_FACTURA` NOT NULL ENABLE);
-ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_CODI` NOT NULL ENABLE);
 -- ------------------------------------------------------
 --  Constraints for Table POPINIONS
 -- ------------------------------------------------------
@@ -444,6 +394,21 @@ ALTER TABLE `GESTIO`.`POPINIONS` MODIFY (`POP_OPINIO_REVISADA` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`POPINIONS` MODIFY (`POP_PUNTUACIO` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`POPINIONS` MODIFY (`POP_OBSERVACIO` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`POPINIONS` MODIFY (`POP_CODI` NOT NULL ENABLE);
+-- ------------------------------------------------------
+--  Constraints for Table FACTURES
+-- ------------------------------------------------------
+
+ALTER TABLE `GESTIO`.`FACTURES` ADD CONSTRAINT `CK_FAC` CHECK (fac_impresa IN ('S','N'));
+ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_IMPRESA` NOT NULL ENABLE);
+ALTER TABLE `GESTIO`.`FACTURES` ADD CONSTRAINT `FAC_FACTURES_PK` PRIMARY KEY (`FAC_CODI`)
+10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+TABLESPACE `SYSTEM`  ENABLE;
+ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_RES_CODI` NOT NULL ENABLE);
+ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_TOTAL_A_PAGAR` NOT NULL ENABLE);
+ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_DATA_FACTURA` NOT NULL ENABLE);
+ALTER TABLE `GESTIO`.`FACTURES` MODIFY (`FAC_CODI` NOT NULL ENABLE);
 -- ------------------------------------------------------
 --  Constraints for Table PROVEIDORS
 -- ------------------------------------------------------
@@ -499,6 +464,20 @@ ALTER TABLE `GESTIO`.`TOPINIONS` MODIFY (`TOP_PUNTUACIO` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`TOPINIONS` MODIFY (`TOP_OBSERVACIO` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`TOPINIONS` MODIFY (`TOP_CODI` NOT NULL ENABLE);
 -- ------------------------------------------------------
+--  Constraints for Table TREBALLADORS
+-- ------------------------------------------------------
+
+ALTER TABLE `GESTIO`.`TREBALLADORS` ADD CONSTRAINT `TRE_CODI_RES` PRIMARY KEY (`TRE_CODI_RES`)
+10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS
+STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+TABLESPACE `SYSTEM`  ENABLE;
+ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_LLINATGE` NOT NULL ENABLE);
+ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_NOM` NOT NULL ENABLE);
+ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_CODI` NOT NULL ENABLE);
+ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_NOM_RES` NOT NULL ENABLE);
+ALTER TABLE `GESTIO`.`TREBALLADORS` MODIFY (`TRE_CODI_RES` NOT NULL ENABLE);
+-- ------------------------------------------------------
 --  Constraints for Table USUARIS
 -- ------------------------------------------------------
 
@@ -510,3 +489,4 @@ TABLESPACE `SYSTEM`  ENABLE;
 ALTER TABLE `GESTIO`.`USUARIS` MODIFY (`USU_ADRECA_ELECTRONICA` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`USUARIS` MODIFY (`USU_NOM` NOT NULL ENABLE);
 ALTER TABLE `GESTIO`.`USUARIS` MODIFY (`USU_CODI` NOT NULL ENABLE);
+

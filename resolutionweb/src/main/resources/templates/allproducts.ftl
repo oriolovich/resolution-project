@@ -5,7 +5,7 @@
 <body>
 <@holamacro.navbar></@holamacro.navbar>
 <div class="container">
-    <h5>Totes les ip's</h5>
+    <h5> Opinions per a tots els gustos</h5>
     <table class="table table-striped">
         <thead>
         <tr>

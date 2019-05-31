@@ -23,11 +23,11 @@
 <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
 <div class="panel panel-default" style="padding: 10px">
 <div class="panel-heading">
-    <h2 style="font-family: 'Raleway', sans-serif;">Formulario de enlace y validación de datos</h2>
+    <h2 style="font-family: 'Raleway', sans-serif;">Formulari</h2>
 </div>
 							<@spring.bind "product"/>
 						<#if product?? && noErrors??>
-							<p class="font">Datos enviados</p>
+							<p class="font">Dades Enviades</p>
 							<p class="font">id: ${product.id}</p>
 							<p class="font">name: ${product.name}</p>
 							<p class="font">description: ${product.description}</p>
