@@ -17,22 +17,21 @@ import javax.validation.Valid;
 
 @Controller
 
-public class WebController {
+public class OpiWebController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private OpinionsService opinionsService;
 
     @RequestMapping("/")
-    public
-    String index (Model model) {
+    public String index (Model model) {
         model.addAttribute("opinions", opinionsService.getAllOpinions());
         return "index";
     }
 
     /*Visualitza totes les opinions*/
     @RequestMapping("/allOpinions")
-    public
+   public
     String getAllOpinions (@ModelAttribute("model") ModelMap model) {
         model.addAttribute("opinions", opinionsService.getAllOpinions());
         return "allOpinions";

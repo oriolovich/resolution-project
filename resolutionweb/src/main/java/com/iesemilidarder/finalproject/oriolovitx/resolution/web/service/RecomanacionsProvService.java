@@ -1,49 +1,154 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.web.service;
 
+
 import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.RecomanacionsProv;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 @Service
 public class RecomanacionsProvService {
-     private static List<RecomanacionsProv> recomanacionsProvList = new ArrayList <>(Arrays.asList(
 
-     ));
-    public List <RecomanacionsProv> getAllRecomanacionsProv () {return recomanacionsProvList;
-
-    public RecomanacionsProv getRecomanacionsProvById (String id){
-
-            try {
-                if (id == null) {
-                    return null;
-                }
-                return recomanacionsProvList.stream().filter(t -> t.getCodi().equals(id)).findFirst().get();
-            } catch (Exception e) {
-                return null;
-            }
+    private static List <RecomanacionsProv> recomanacionsProvList = new List <RecomanacionsProv>() {
+        @Override
+        public
+        int size ( ) {
+            return 0;
         }
 
-        /*Métode per afegir xarxa*/
-        public void addRecomanacionsProv (RecomanacionsProv recomanacionsProv { recomanacionsProvList.add(RecomanacionsProv);
+        @Override
+        public
+        boolean isEmpty ( ) {
+            return false;
         }
 
-
-        /*Métod actuliza xarxa*/
-        public void updateRecomanacionsProv (RecomanacionsProv recom, String id){
-            for (int i = 0; i < recomanacionsProvList.size(); i++) {
-                RecomanacionsProv recomanacionsProv = recomanacionsProvList.get(i);
-                if (recomanacionsProv.getCodi().equals(codi)) {
-                    recomanacionsProvList.set(i, opi);
-                }
-            }
+        @Override
+        public
+        boolean contains (Object o) {
+            return false;
         }
 
-        /*Métode elimina restaurant*/
-        public void deleteOpinions (String codi) {recomanacionsProvList.removeIf(t -> t.getCodi().equals(codi);
+        @Override
+        public
+        Iterator <RecomanacionsProv> iterator ( ) {
+            return null;
         }
-    }
-    }
+
+        @Override
+        public
+        Object[] toArray ( ) {
+            return new Object[0];
+        }
+
+        @Override
+        public
+        <T> T[] toArray (T[] a) {
+            return null;
+        }
+
+        @Override
+        public
+        boolean add (RecomanacionsProv recomanacionsProv) {
+            return false;
+        }
+
+        @Override
+        public
+        boolean remove (Object o) {
+            return false;
+        }
+
+        @Override
+        public
+        boolean containsAll (Collection <?> c) {
+            return false;
+        }
+
+        @Override
+        public
+        boolean addAll (Collection <? extends RecomanacionsProv> c) {
+            return false;
+        }
+
+        @Override
+        public
+        boolean addAll (int index, Collection <? extends RecomanacionsProv> c) {
+            return false;
+        }
+
+        @Override
+        public
+        boolean removeAll (Collection <?> c) {
+            return false;
+        }
+
+        @Override
+        public
+        boolean retainAll (Collection <?> c) {
+            return false;
+        }
+
+        @Override
+        public
+        void clear ( ) {
+
+        }
+
+        @Override
+        public
+        RecomanacionsProv get (int index) {
+            return null;
+        }
+
+        @Override
+        public
+        RecomanacionsProv set (int index, RecomanacionsProv element) {
+            return null;
+        }
+
+        @Override
+        public
+        void add (int index, RecomanacionsProv element) {
+
+        }
+
+        @Override
+        public
+        RecomanacionsProv remove (int index) {
+            return null;
+        }
+
+        @Override
+        public
+        int indexOf (Object o) {
+            return 0;
+        }
+
+        @Override
+        public
+        int lastIndexOf (Object o) {
+            return 0;
+        }
+
+        @Override
+        public
+        ListIterator <RecomanacionsProv> listIterator ( ) {
+            return null;
+        }
+
+        @Override
+        public
+        ListIterator <RecomanacionsProv> listIterator (int index) {
+            return null;
+        }
+
+        @Override
+        public
+        List <RecomanacionsProv> subList (int fromIndex, int toIndex) {
+            return null;
+        }
+    };
 }

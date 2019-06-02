@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.UUID;
 
-public class RecomanacionsProv extends Restaurants {
+public class RecomanacionsProv extends Proveidors {
 
 
     private String codi;

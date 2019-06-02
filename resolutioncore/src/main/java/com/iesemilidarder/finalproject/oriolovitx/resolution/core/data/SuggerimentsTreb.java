@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.UUID;
 
-public class SuggerimentsTreb extends Restaurants{
+public class SuggerimentsTreb extends Treballadors {
 
 
     private String id;
