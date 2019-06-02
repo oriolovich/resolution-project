@@ -24,8 +24,9 @@ CREATE TABLE `GESTIO`.`COMANDES`
 	`OPI_USU_CODI` VARCHAR(3) COMMENT ''
    )
   ;
-RENAME TABLE
-
+ 
+ALTER  TABLE `GESTIO`.`OPINIONS`  COMMENT 'Opinions';
+-- -----------
 -- ------------------------------------------------------
 --  DDL for Table LOG_COMANDES
 -- ------------------------------------------------------
@@ -141,7 +142,7 @@ COMMENT ON COLUMN `GESTIO`.`TOPINIONS`.`TOP_OPINIO_REVISADA` IS ''; */
 COMMENT ON COLUMN `GESTIO`.`TOPINIONS`.`TOP_RES_CODI` IS ''; */
 /* Moved to CREATE TABLE
 COMMENT ON COLUMN `GESTIO`.`TOPINIONS`.`TOP_USU_CODI` IS ''; */
-ALTER TABLE `GESTIO`.`TOPINIONS`  COMMENT 'Opinions';
+ALTER TABLE `GESTIO`.`TOPINIONS`  COMMENT 'Topinions';
 -- ------------------------------------------------------
 --  DDL for Table TREBALLADORS
 -- ------------------------------------------------------
