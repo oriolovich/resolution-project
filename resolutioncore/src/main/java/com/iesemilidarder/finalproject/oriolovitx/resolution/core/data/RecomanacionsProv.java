@@ -8,26 +8,26 @@ import java.util.UUID;
 public class RecomanacionsProv extends Restaurants {
 
 
-    private String id;
+    private String codi;
     private String suggerencia;
     private String grup_codi;
     private String punts_prestigi;
 
 
-    public RecomanacionsProv (){this.id = UUID.randomUUID().toString();
+    public RecomanacionsProv (){this.codi = UUID.randomUUID().toString();
     }
-    public RecomanacionsProv(String id, String suggerencia, String grup_codi, String punts_prestigi) {
-        if(StringUtils.isEmpty(id)){
-            id = UUID.randomUUID().toString();
+    public RecomanacionsProv(String codi, String suggerencia, String grup_codi, String punts_prestigi) {
+        if(StringUtils.isEmpty(codi)){
+            codi = UUID.randomUUID().toString();
         }
-        this.id = id;
+        this.codi = codi;
         this.suggerencia = suggerencia;
         this.grup_codi = grup_codi;
         this.punts_prestigi = punts_prestigi;
     }
-    public String getId ( ) { return id;
+    public String getCodi ( ) { return codi;
     }
-    public void setId (String id) {
+    public void setCodi (String codi) {
     }
     public
     String getSuggerencia ( ) {  return suggerencia;

@@ -24,24 +24,27 @@ public class WebController {
     private OpinionsService opinionsService;
 
     @RequestMapping("/")
-    public String index(Model model) {
+    public
+    String index (Model model) {
         model.addAttribute("opinions", opinionsService.getAllOpinions());
         return "index";
     }
 
     /*Visualitza totes les opinions*/
     @RequestMapping("/allOpinions")
-    public String getAllOpinions(@ModelAttribute("model") ModelMap model) {
+    public
+    String getAllOpinions (@ModelAttribute("model") ModelMap model) {
         model.addAttribute("opinions", opinionsService.getAllOpinions());
         return "allOpinions";
     }
 
     /*Visualitza opinió via id - buscador*/
     @RequestMapping("/restaurants/search")
-    public String getOpinions(@RequestParam String id, Model model) {
+    public
+    String getOpinions (@RequestParam String id, Model model) {
         try {
             Opinions o = opinionsService.getOpinionsById(id);
-            if (o!= null && o.getCodi().equals(id)) {
+            if (o != null && o.getCodi().equals(id)) {
                 model.addAttribute("opinions", o);
             }
         } catch (Exception e) {
@@ -53,22 +56,25 @@ public class WebController {
     /*Formulari per afegir opinions dins del array list */
 
     @GetMapping("/addOpinions")
-    public String index() {
+    public
+    String index ( ) {
         return "redirect:/form";
     }
 
     @GetMapping("/form")
-    public String formGet(Model model) {
+    public
+    String formGet (Model model) {
         model.addAttribute("opinions", new Opinions());
         return "form";
 
     }
 
     @PostMapping("/form")
-    public String formPost(@Valid Opinions opinions, BindingResult bindingResult, Model model){
+    public
+    String formPost (@Valid Opinions opinions, BindingResult bindingResult, Model model) {
         try {
             model.addAttribute("noErrors", true);
-            if (opinionsService.getOpinionsById(opinions.getCodi())!= null) {
+            if (opinionsService.getOpinionsById(opinions.getCodi()) != null) {
                 opinionsService.updateOpinions(opinions, opinions.getCodi());
             } else if (!bindingResult.hasErrors()) {
                 opinionsService.addOpinions(opinions);
@@ -84,16 +90,18 @@ public class WebController {
 
     /*Mostra actualizació formulari de l'usuari*/
     @RequestMapping(value = "/opinions/{id}/update", method = RequestMethod.GET)
-    public String updateOpinions(@PathVariable("id") String id, Model model) {
-       Opinions opinions = opinionsService.getOpinionsById(id);
+    public
+    String updateOpinions (@PathVariable("id") String id, Model model) {
+        Opinions opinions = opinionsService.getOpinionsById(id);
         model.addAttribute("opinions", opinions);
         return "/form";
     }
 
     /*Elimina opinio*/
     @RequestMapping("/opinions/delete/{id}")
-    public String opinionsDelete(@PathVariable("id") String id, Model model){
+    public
+    String opinionsDelete (@PathVariable("id") String id, Model model) {
         opinionsService.deleteOpinions(id);
         return "redirect:/allOpinions";
-        }
     }
+}
