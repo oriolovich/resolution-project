@@ -32,13 +32,13 @@ public class OpiWebController {
     /*Visualitza totes les opinions*/
     @RequestMapping("/allOpinionsCli")
    public
-    String getAllOpinionsCli (@ModelAttribute("model") ModelMap model) {
+    String getAllOpinions (@ModelAttribute("model") ModelMap model) {
         model.addAttribute("opinionsCli", opinionsCliService.getAllOpinionsCli());
-        return "allOpinions";
+        return "allOpinionsCli";
     }
 
     /*Visualitza opinió via id - buscador*/
-    @RequestMapping("/restaurants/search")
+    @RequestMapping("/opinionsCli/search")
     public
     String getOpinions (@RequestParam String id, Model model) {
         try {
@@ -90,7 +90,7 @@ public class OpiWebController {
     /*Mostra actualizació formulari de l'usuari*/
     @RequestMapping(value = "/opinionsCli/{id}/update", method = RequestMethod.GET)
     public
-    String updateOpinionsCli (@PathVariable("id") String id, Model model) {
+    String updateOpinions (@PathVariable("id") String id, Model model) {
         OpinionsCli opinionsCli = opinionsCliService.getOpinionsCliById(id);
         model.addAttribute("opinionsCli", opinionsCli);
         return "/form";
@@ -99,7 +99,7 @@ public class OpiWebController {
     /*Elimina opinio*/
     @RequestMapping("/opinionsCli/delete/{id}")
     public
-    String opinionsCliDelete (@PathVariable("id") String id, Model model) {
+    String opinionsDelete (@PathVariable("id") String id, Model model) {
         opinionsCliService.deleteOpinionsCli(id);
         return "redirect:/allOpinionsCli";
     }
