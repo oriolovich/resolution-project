@@ -9,17 +9,17 @@
               crossorigin="anonymous">
         <!-- Google icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/public/css/main.css">
         <title>CRUD</title>
     </head>
 </#macro>
 <#macro navbar>
     <!-- Barra navegacion -->
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/" style="text-decoration: none">INSTRUSSIONS!!</a></h5>
+    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/" style="text-decoration: none">La web d'opinions que encara no s'havia inventat!! </a></h5>
     <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text dark" href="/allProducts">Veure totes les intrussions</a>
-        <a class="p-2 text-dark" href="/addProduct">Afegeix ip</a>
+        <a class="p-2 text dark" href="/allOpinionsCLi">Des d'aquí pots veure totes les opinions</a>
+        <a class="p-2 text-dark" href="/addOpinionsCli">Fica-hi cullerada!!</a>
     </nav>
 </div>
 </#macro>
@@ -29,16 +29,16 @@
       <div class="container">
           <div class="row">
               <div class="col-xl-9 mx-auto">
-                  <h4 class="mb-3">CERCADOR D'INTRUSOS</h4>
+                  <h4 class="mb-3">CERCADOR D'OPINIONS</h4>
               </div>
               <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                  <form action="/product/search" method="POST">
+                  <form action="/opinionsCli/search" method="POST">
                       <div class="form-row">
                           <div class="col-12 col-md-9 mb-2 mb-md-0">
-                              <input class="form-control form-control-lg" id="id" name="id" type="text" placeholder="Buscar evento por ID">
+                              <input class="form-control form-control-lg" id="id" name="id" type="text" placeholder="Cercau opinió per ID">
                           </div>
                           <div class="col-12 col-md-3">
-                              <button type="submit" class="btn btn-block btn-lg btn-primary">Busca</button>
+                              <button type="submit" class="btn btn-block btn-lg btn-primary">Cercau</button>
                           </div>
                       </div>
                   </form>
@@ -47,32 +47,30 @@
       </div>
   </header>
 </#macro>
-<#macro printProducts collectionData>
+<#macro printOpinions collectionData>
 <div class="container">
  <div class="card-deck mb-3 text-center">
             <#if collectionData??>
               <#list collectionData as item>
-                  <@printProduct elem=item/>
+                  <@printOpinionsCli elem=item/>
               </#list>
             </#if>
  </div>
 </#macro>
-<#macro printProduct elem="">
+<#macro printOpinions elem="">
 <div class="card mb-4 shadow-sm">
     <div class="card-header">
         <div class="card-header">
-            <h4 class="my-0 font-weight-normal">${elem.name!""}</h4>
+            <h4 class="my-0 font-weight-normal">${elem.observacio!""}</h4>
         </div>
         <div class="card-body">
     <#if elem??>
-        <h1 class="card-title pricing-card-title">${elem.price!""} &euro;</h1>
+        <h1 class="card-title pricing-card-title">${elem.puntuacio!""} &euro;</h1>
         <ul class="list-unstyled mt-3 mb-4">
-            <li>${elem.description!""}</li>
-            <li>origen</li>
-            <li>entrada-ip</li>
-            <li>referència</li>
+            <li>${elem.restcodi!""}</li>
+
         </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Ir anar a un log</button>
+        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Anar a una opinió</button>
     </#if>
         </div>
     </div>
@@ -83,29 +81,14 @@
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
             <div class="col-12 col-md">
-                <img class="mb-2" src="/img/foy.png" alt="foy" width="24" height="24">
+                <img class="mb-2" src="/public/img/elplat.jfif" alt="elplat" width="24" height="24">
                 <small class="d-block mb-3 text-muted">&copy; 2019</small>
             </div>
             <div class="col-6 col-md">
-                <h5>IDS</h5>
+                <h5>Clients</h5>
                 <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Snort</a></li>
-                    <li><a class="text-muted" href="#">Nagios</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Firewalls</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Iptables</a></li>
-                    <li><a class="text-muted" href="#">Comodo Firewall</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Pentesting</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Fins on aguanta la teva web?</a></li>
-                    <li><a class="text-muted" href="#">Atacs freqüents</a></li>
-                    <li><a class="text-muted" href="#">Altres opcions</a></li>
+                    <li><a class="text-muted" href="#">Títol</a></li>
+                    <li><a class="text-muted" href="#">Digues la teva</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md">

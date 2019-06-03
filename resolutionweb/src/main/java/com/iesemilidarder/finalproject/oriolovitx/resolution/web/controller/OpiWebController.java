@@ -2,8 +2,8 @@ package com.iesemilidarder.finalproject.oriolovitx.resolution.web.controller;
 
 
 
-import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Opinions;
-import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.OpinionsService;
+import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.OpinionsCli;
+import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.OpinionsCliService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +21,19 @@ public class OpiWebController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private OpinionsService opinionsService;
+    private OpinionsCliService opinionsCliService;
 
     @RequestMapping("/")
     public String index (Model model) {
-        model.addAttribute("opinions", opinionsService.getAllOpinions());
+        model.addAttribute("opinionsCli", opinionsCliService.getAllOpinionsCli());
         return "index";
     }
 
     /*Visualitza totes les opinions*/
-    @RequestMapping("/allOpinions")
+    @RequestMapping("/allOpinionsCli")
    public
-    String getAllOpinions (@ModelAttribute("model") ModelMap model) {
-        model.addAttribute("opinions", opinionsService.getAllOpinions());
+    String getAllOpinionsCli (@ModelAttribute("model") ModelMap model) {
+        model.addAttribute("opinionsCli", opinionsCliService.getAllOpinionsCli());
         return "allOpinions";
     }
 
@@ -42,19 +42,19 @@ public class OpiWebController {
     public
     String getOpinions (@RequestParam String id, Model model) {
         try {
-            Opinions o = opinionsService.getOpinionsById(id);
+            OpinionsCli o = opinionsCliService.getOpinionsCliById(id);
             if (o != null && o.getCodi().equals(id)) {
-                model.addAttribute("opinions", o);
+                model.addAttribute("opinionsCli", o);
             }
         } catch (Exception e) {
             log.error("Valor introduït ivvàlid", e);
         }
-        return "opinions";
+        return "opinionsCli";
     }
 
     /*Formulari per afegir opinions dins del array list */
 
-    @GetMapping("/addOpinions")
+    @GetMapping("/addOpinionsCli")
     public
     String index ( ) {
         return "redirect:/form";
@@ -63,23 +63,23 @@ public class OpiWebController {
     @GetMapping("/form")
     public
     String formGet (Model model) {
-        model.addAttribute("opinions", new Opinions());
+        model.addAttribute("opinionsCli", new OpinionsCli());
         return "form";
 
     }
 
     @PostMapping("/form")
     public
-    String formPost (@Valid Opinions opinions, BindingResult bindingResult, Model model) {
+    String formPost (@Valid OpinionsCli opinionsCli, BindingResult bindingResult, Model model) {
         try {
             model.addAttribute("noErrors", true);
-            if (opinionsService.getOpinionsById(opinions.getCodi()) != null) {
-                opinionsService.updateOpinions(opinions, opinions.getCodi());
+            if (opinionsCliService.getOpinionsCliById(opinionsCli.getCodi()) != null) {
+                opinionsCliService.updateOpinionsCli(opinionsCli, opinionsCli.getCodi());
             } else if (!bindingResult.hasErrors()) {
-                opinionsService.addOpinions(opinions);
+                opinionsCliService.addOpinionsCli(opinionsCli);
             }
 
-            model.addAttribute("opinions", opinions);
+            model.addAttribute("opinionsCli", opinionsCli);
         } catch (Exception e) {
             log.error("Error", e);
         }
@@ -88,19 +88,19 @@ public class OpiWebController {
     }
 
     /*Mostra actualizació formulari de l'usuari*/
-    @RequestMapping(value = "/opinions/{id}/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/opinionsCli/{id}/update", method = RequestMethod.GET)
     public
-    String updateOpinions (@PathVariable("id") String id, Model model) {
-        Opinions opinions = opinionsService.getOpinionsById(id);
-        model.addAttribute("opinions", opinions);
+    String updateOpinionsCli (@PathVariable("id") String id, Model model) {
+        OpinionsCli opinionsCli = opinionsCliService.getOpinionsCliById(id);
+        model.addAttribute("opinionsCli", opinionsCli);
         return "/form";
     }
 
     /*Elimina opinio*/
-    @RequestMapping("/opinions/delete/{id}")
+    @RequestMapping("/opinionsCli/delete/{id}")
     public
-    String opinionsDelete (@PathVariable("id") String id, Model model) {
-        opinionsService.deleteOpinions(id);
-        return "redirect:/allOpinions";
+    String opinionsCliDelete (@PathVariable("id") String id, Model model) {
+        opinionsCliService.deleteOpinionsCli(id);
+        return "redirect:/allOpinionsCli";
     }
 }
