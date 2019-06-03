@@ -1,34 +1,43 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 
-public class Tickets extends Restaurants {
+public class Tickets extends FacturacioxTickets {
     private String codi;
+    private String tipus_facturacio;
     private String data_ticket;
-    private String total_ltickets;
+    private String total_tickets;
     private String total_imposts;
     private String fac_codi;
     private String res_codi;
 
 
-    public Tickets (String codi, String data_ticket, String total_ltickets, String total_imposts, String fac_codi, String res_codi) {
+    public Tickets (String codi, String tipus_facturacio,String data_ticket, String total_tickets, String total_imposts, String fac_codi, String res_codi) {
         this.codi = codi;
+        this.tipus_facturacio = tipus_facturacio;
         this.data_ticket = data_ticket;
-        this.total_ltickets = total_ltickets;
+        this.total_tickets = total_tickets;
         this.total_imposts = total_imposts;
         this.fac_codi = fac_codi;
         this.res_codi = res_codi;
     }
-    @Override
+
     public
     String getCodi ( ) {
         return codi;
     }
 
-    @Override
+
     public
     void setCodi (String codi) {
         this.codi = codi;
     }
 
+    public
+    String getTipus_facturacio (){return tipus_facturacio;}
+
+    public
+    void setTipus_facturacio(String tipus_facturacio) {
+        this.tipus_facturacio = tipus_facturacio;
+    }
     public
     String getData_ticket ( ) {
         return data_ticket;
@@ -40,13 +49,13 @@ public class Tickets extends Restaurants {
     }
 
     public
-    String getTotal_ltickets ( ) {
-        return total_ltickets;
+    String getTotal_tickets ( ) {
+        return total_tickets;
     }
 
     public
-    void setTotal_ltickets (String total_ltickets) {
-        this.total_ltickets = total_ltickets;
+    void setTotal_tickets (String total_tickets) {
+        this.total_tickets = total_tickets;
     }
 
     public

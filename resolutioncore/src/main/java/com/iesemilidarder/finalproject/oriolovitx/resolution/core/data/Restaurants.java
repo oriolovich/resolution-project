@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.UUID;
 
-public abstract class Restaurants implements CadenaLaMenja {
+public abstract class Restaurants {
 
 
 
