@@ -16,10 +16,10 @@
 <#macro navbar>
     <!-- Barra navegacion -->
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/" style="text-decoration: none">INSTRUSSIONS!!</a></h5>
+    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/" style="text-decoration: none">DIGUES LA TEVA!!</a></h5>
     <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text dark" href="/allProducts">Veure totes les intrussions</a>
-        <a class="p-2 text-dark" href="/addProduct">Afegeix ip</a>
+        <a class="p-2 text dark" href="/allOpinionsCli">Veure totes les opinions</a>
+        <a class="p-2 text-dark" href="/addOpinionsCli">Afegeix ip</a>
     </nav>
 </div>
 </#macro>
@@ -29,16 +29,16 @@
       <div class="container">
           <div class="row">
               <div class="col-xl-9 mx-auto">
-                  <h4 class="mb-3">CERCADOR D'INTRUSOS</h4>
+                  <h4 class="mb-3">CERCADOR D'OPINIONS DE CLIENTS</h4>
               </div>
               <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                  <form action="/product/search" method="POST">
+                  <form action="/opinionsCli/search" method="POST">
                       <div class="form-row">
                           <div class="col-12 col-md-9 mb-2 mb-md-0">
                               <input class="form-control form-control-lg" id="id" name="id" type="text" placeholder="Buscar evento por ID">
                           </div>
                           <div class="col-12 col-md-3">
-                              <button type="submit" class="btn btn-block btn-lg btn-primary">Busca</button>
+                              <button type="submit" class="btn btn-block btn-lg btn-primary">Cerca</button>
                           </div>
                       </div>
                   </form>
