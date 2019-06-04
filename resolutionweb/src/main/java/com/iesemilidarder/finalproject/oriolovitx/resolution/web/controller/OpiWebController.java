@@ -2,6 +2,7 @@ package com.iesemilidarder.finalproject.oriolovitx.resolution.web.controller;
 
 
 
+import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Clients;
 import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.OpinionsCli;
 import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.OpinionsCliService;
 import org.slf4j.Logger;
@@ -21,7 +22,8 @@ public class OpiWebController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private OpinionsCliService opinionsCliService;
+    private OpinionsCliService <Clients, Number> opinionsCliService;
+
 
     @RequestMapping("/")
     public String index (Model model) {
@@ -42,7 +44,7 @@ public class OpiWebController {
     public
     String getOpinions (@RequestParam String id, Model model) {
         try {
-            OpinionsCli o = opinionsCliService.getOpinionsCliById(id);
+            OpinionsCli o = opinionsCliService.saveOpinionsCli();
             if (o != null && o.getCodi().equals(id)) {
                 model.addAttribute("opinionsCli", o);
             }
@@ -71,19 +73,8 @@ public class OpiWebController {
     @PostMapping("/form")
     public
     String formPost (@Valid OpinionsCli opinionsCli, BindingResult bindingResult, Model model) {
-        try {
-            model.addAttribute("noErrors", true);
-            if (opinionsCliService.getOpinionsCliById(opinionsCli.getCodi()) != null) {
-                opinionsCliService.updateOpinionsCli(opinionsCli, opinionsCli.getCodi());
-            } else if (!bindingResult.hasErrors()) {
-                opinionsCliService.addOpinionsCli(opinionsCli);
-            }
 
-            model.addAttribute("opinionsCli", opinionsCli);
-        } catch (Exception e) {
-            log.error("Error", e);
-        }
-        return "form";
+              return "form";
 
     }
 
@@ -91,16 +82,16 @@ public class OpiWebController {
     @RequestMapping(value = "/opinionsCli/{id}/update", method = RequestMethod.GET)
     public
     String updateOpinions (@PathVariable("id") String id, Model model) {
-        OpinionsCli opinionsCli = opinionsCliService.getOpinionsCliById(id);
+        OpinionsCli opinionsCli = opinionsCliService.update(id);
         model.addAttribute("opinionsCli", opinionsCli);
         return "/form";
     }
 
     /*Elimina opinio*/
-    @RequestMapping("/opinionsCli/delete/{id}")
+    @RequestMapping("/opinionsCli/{id}/delete")
     public
     String opinionsDelete (@PathVariable("id") String id, Model model) {
-        opinionsCliService.deleteOpinionsCli(id);
+        opinionsCliService.delete();
         return "redirect:/allOpinionsCli";
     }
 }
