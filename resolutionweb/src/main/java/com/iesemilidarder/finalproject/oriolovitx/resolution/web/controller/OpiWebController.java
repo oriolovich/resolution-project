@@ -14,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+
 import javax.validation.Valid;
 
 @Controller
@@ -22,7 +23,7 @@ public class OpiWebController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private OpinionsCliService <Clients, Number> opinionsCliService;
+    private OpinionsCliService opinionsCliService;
 
 
     @RequestMapping("/")

@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 
-public interface OpinionsCliService<O extends Clients, L extends Number> {
+public interface OpinionsCliService {
 
     /* ArrayList d'objectes de la classe "Network"*/
      public  List<OpinionsCli> findAll();
@@ -23,7 +23,7 @@ public interface OpinionsCliService<O extends Clients, L extends Number> {
 
     List<OpinionsCli> getAllOpinionsCli ( );
 
-    public void addOne (O opinionsCli);
+    public void addOne ();
 
     OpinionsCli saveOpinionsCli ( );
 }

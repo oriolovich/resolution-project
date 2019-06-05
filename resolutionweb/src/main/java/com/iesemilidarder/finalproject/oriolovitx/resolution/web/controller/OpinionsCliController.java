@@ -4,6 +4,7 @@ import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Clients;
 import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.OpinionsCli;
 import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.OpinionsCliService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 public class OpinionsCliController {
 
     @Autowired
-    private OpinionsCliService <Clients, Number> opinionsCliService;
+    private OpinionsCliService opinionsCliService;
 
     /*Totes les opinions*/
     @RequestMapping("/opinionsCli")
@@ -29,7 +30,7 @@ public class OpinionsCliController {
 
     /*Afegeix opinions*/
     @RequestMapping(method = RequestMethod.POST, value = "/opinionsCli")
-    public void addOpinionsCli(@RequestBody OpinionsCli opinionsCli){ opinionsCliService.addOne(opinionsCli);
+    public void addOpinionsCli(@RequestBody OpinionsCli opinionsCli){ opinionsCliService.addOne();
     }
 
     /*Actulitza opinions*/
