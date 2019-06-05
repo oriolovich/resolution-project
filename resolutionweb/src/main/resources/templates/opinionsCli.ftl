@@ -5,15 +5,14 @@
 <body>
 <@holamacro.navbar></@holamacro.navbar>
 <div class="container">
-        <#if product??>
-            <h5>Todos los eventos</h5>
+        <#if opinionsCli??>
+            <h5>Totes les opinions dels clients</h5>
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Precio</th>
+                    <th scope="col">codi</th>
+                    <th scope="col">observació</th>
+                    <th scope="col">opinió revisada</th>
                     <th scope="col">Actualizar</th>
                     <th scope="col">Eliminar</th>
                 </tr>

@@ -10,14 +10,14 @@ public class  OpinionsCli extends Clients{
     private String puntuacio;
     private String oprevisada;
     private String restcodi;
-    private String uscodi;
+    private String clicodi;
 
     public OpinionsCli() {
         super();
         this.id = UUID.randomUUID().toString();
     }
 
-    public OpinionsCli (String id, String observacio, String puntuacio, String oprevisada, String restcodi, String uscodi) {
+    public OpinionsCli (String id, String observacio, String puntuacio, String oprevisada, String restcodi, String clicodi) {
         //this.id = id;
         if (StringUtils.isEmpty(id)) {
             id = UUID.randomUUID().toString();
@@ -27,7 +27,7 @@ public class  OpinionsCli extends Clients{
         this.puntuacio = puntuacio;
         this.oprevisada = oprevisada;
         this.restcodi = restcodi;
-        this.uscodi = uscodi;
+        this.clicodi = clicodi;
 
 
     }
@@ -78,12 +78,12 @@ public class  OpinionsCli extends Clients{
 
     public
     String getUscodi ( ) {
-        return uscodi;
+        return clicodi;
     }
 
     public
     void setUscodi (String uscodi) {
-        this.uscodi = uscodi;
+        this.clicodi = uscodi;
     }
 
 }

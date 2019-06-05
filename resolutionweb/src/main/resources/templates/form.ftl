@@ -17,7 +17,7 @@
 
 </style>
 
-</div>
+
 <div class="container-fluid">
 <div class="row justify-content-center align-items-center centered-form">
 <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
@@ -25,38 +25,43 @@
 <div class="panel-heading">
     <h2 style="font-family: 'Raleway', sans-serif;">Formulari</h2>
 </div>
-							<@spring.bind "product"/>
-						<#if product?? && noErrors??>
+							<@spring.bind "opinionsCli"/>
+						<#if opinionsCli?? && noErrors??>
 							<p class="font">Dades Enviades</p>
-							<p class="font">id: ${product.id}</p>
-							<p class="font">name: ${product.name}</p>
-							<p class="font">description: ${product.description}</p>
-							<p class="font">price: ${product.price}</p>
+							<p class="font">id: ${opinionsCli.id}</p>
+							<p class="font">observació: ${opinionsCli.observacio}</p>
+							<p class="font">opinió revisada: ${opinionsCli.oprevisada}</p>
+							<p class="font">codi del restaurant: ${opinionsCli.restcodi}</p>
+							<p class="font">codi del client: ${opinionsCli.clicodi}</p>
                         <#else>
 
-			 			<div class="panel-body">
                             <form action="/form" method="post">
-                                <@spring.formInput path="product.id" fieldType="hidden"/>
+                                <@spring.formInput path="opinionsCli.id" fieldType="hidden"/>
                                 <div class="font">
-                                    Name:<br>
-                                    <span style="margin-left: 15px"><@spring.formInput path="product.name" fieldType="" attributes="required"/><@spring.showErrors "<br>"/></span>
+                                    Codi:<br>
+                                    <span style="margin-left: 15px"><@spring.formInput path="opinionsCli.id" fieldType="" attributes="required"/><@spring.showErrors "<br>"/></span>
                                 </div>
                                 <div class="font">
-                                    Description:<br>
-									<span style="margin-left: 15px"><@spring.formInput "product.description"/><@spring.showErrors "<br>"/></span>
+                                    Observació:<br>
+									<span style="margin-left: 15px"><@spring.formInput "opinionsCli.observacio"/><@spring.showErrors "<br>"/></span>
                                 </div>
                                 <div class="font">
-                                    Price:<br>
-                                    <span style="margin-left: 15px" ><@spring.formInput "product.price"/><@spring.showErrors "<br>"/></span>
+                                    Opinió Revisada:<br>
+                                    <span style="margin-left: 15px" ><@spring.formInput "opinionsCli.opirevisada"/><@spring.showErrors "<br>"/></span>
                                 </div>
-                                <input class="btn btn-secondary" type="submit" value="Enviar">
+	                            <div class="font">
+		                            Codi del Restaurant:<br>
+		                            <span style="margin-left: 15px"><@spring.formInput "opinionsCli.restcodi"/><@spring.showErrors "<br>"/></span>
+	                            </div>
+                                <input class="btn btn-secondary" type="submit" value="Envia'l">
                             </form>
                         </#if>
-                        </div>
-	    		</div>
+						</div>
+						</div>
     		</div>
     	</div>
-    </div>
+   </div>
+
 <@holamacro.optional></@holamacro.optional>
 </body>
 </html>

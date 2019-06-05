@@ -5,7 +5,7 @@
 <body>
 <@holamacro.navbar></@holamacro.navbar>
 <@holamacro.finder></@holamacro.finder>
-<@holamacro.printProducts collectionData=product></@holamacro.printProducts>
+<@holamacro.printOpinionsCli></@holamacro.printOpinionsCli>
 <@holamacro.footer></@holamacro.footer>
 <@holamacro.optional></@holamacro.optional>
 </body>
