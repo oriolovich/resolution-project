@@ -4,6 +4,7 @@ import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Clients;
 import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.OpinionsCli;
 import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.OpinionsCliService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
