@@ -8,22 +8,55 @@ import java.util.List;
 
 @Service
 
-public interface OpinionsCliService {
+public class OpinionsCliService {
 
-    /* ArrayList d'objectes de la classe "Network"*/
-     public  List<OpinionsCli> findAll();
-     public void saveOpinionsCli (OpinionsCli opinionsCli);
-     public OpinionsCli findOne(long id);
-     public void delete ( );
+     /* ArrayList d'objectes de la classe "Network"*/
      public
-     OpinionsCli update (String id);
-     public List<OpinionsCli> findById (String id);
-     public List<OpinionsCli> findByBody (String observacio);
+     List <OpinionsCli> findAll ( ) {
+          return null;
+     }
+
+     public
+     void saveOpinionsCli (OpinionsCli opinionsCli) {
+
+     }
+
+     public
+     OpinionsCli findOne (long id) {
+          return null;
+     }
+
+     public
+     void delete ( ) {
+
+     }
+
+     public
+     OpinionsCli update (String id) {
+          return update(id);
+     }
+
+     public
+     List <OpinionsCli> findById (String id) {
+          return findById(id);
+     }
+
+     public
+     List <OpinionsCli> findByBody (String observacio) {
+          return findByBody(observacio);
+     }
 
 
-    List<OpinionsCli> getAllOpinionsCli ( );
+     List <OpinionsCli> getAllOpinionsCli ( ) {
+          return getAllOpinionsCli();
+     }
 
-    public void addOne ();
+     public
+     void addOne ( ) {
 
-    OpinionsCli saveOpinionsCli ( );
+     }
+
+     OpinionsCli saveOpinionsCli ( ) {
+          return saveOpinionsCli();
+     }
 }
