@@ -23,7 +23,7 @@ public class OpiWebController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private OpinionsCliService opinionsCliService;
+    public OpinionsCliService opinionsCliService;
 
 
     @RequestMapping("/")

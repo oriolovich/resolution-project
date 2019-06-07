@@ -47,6 +47,7 @@ public class OpinionsCliService {
      }
 
 
+     public
      List <OpinionsCli> getAllOpinionsCli ( ) {
           return getAllOpinionsCli();
      }
@@ -56,6 +57,7 @@ public class OpinionsCliService {
 
      }
 
+     public
      OpinionsCli saveOpinionsCli ( ) {
           return saveOpinionsCli();
      }

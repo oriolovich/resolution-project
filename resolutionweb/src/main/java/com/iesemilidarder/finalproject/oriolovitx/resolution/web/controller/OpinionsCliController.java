@@ -13,7 +13,7 @@ import java.util.List;
 public class OpinionsCliController {
 
     @Autowired
-    private OpinionsCliService opinionsCliService;
+     public OpinionsCliService opinionsCliService;
 
     /*Totes les opinions*/
     @RequestMapping("/opinionsCli")
