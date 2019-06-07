@@ -1,18 +1,26 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.web;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 
 
+public class Application extends SpringApplicationBuilder{
 
-public class Application{
 
 
-    public static
-    void main (String... args) {
+            public static void main (String[] args) {
 
-    }
-}
+            }
+
+
+        }
+
+
+
+
+
+    
