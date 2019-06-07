@@ -1,6 +1,6 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 
-public abstract class FacturacioxTickets extends Restaurants{
+public abstract class FacturacioxTickets extends Restaurants {
     public
     Double getComandesproveidors ( ) {
         return Comandesproveidors;
@@ -26,14 +26,17 @@ public abstract class FacturacioxTickets extends Restaurants{
     private Double Comandesrestaurants;
 
     public
-    Double getGuannysxtreballadors ( ) {
-        return Guannysxtreballadors;
+    Double getMijtanaSouTreballadors ( ) {
+        return mijtanaSouTreballadors;
     }
 
     public
-    void setGuannysxtreballadors (Double guannysxtreballadors) {
-        Guannysxtreballadors = guannysxtreballadors;
+    void setMijtanaSouTreballadors (Double mijtanaSouTreballadors) {
+        this.mijtanaSouTreballadors = mijtanaSouTreballadors;
     }
 
-    private Double Guannysxtreballadors;
+    private Double mijtanaSouTreballadors;
+
 }
+
+
