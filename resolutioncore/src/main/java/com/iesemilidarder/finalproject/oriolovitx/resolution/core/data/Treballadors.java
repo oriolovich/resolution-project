@@ -8,6 +8,8 @@ public class Treballadors extends Tickets{
     private String sector;
     private String ocupacio;
     private Double experiencia;
+    private Integer MitjanaSalari;
+
 
     public
     Treballadors (String codi, String tipus_facturacio, String data_ticket, String total_tickets, String total_imposts, String fac_codi, String res_codi) {
