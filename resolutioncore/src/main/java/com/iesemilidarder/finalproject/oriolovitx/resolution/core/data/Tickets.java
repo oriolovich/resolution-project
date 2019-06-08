@@ -1,6 +1,8 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 
-public class Tickets extends FacturacioxTickets {
+
+
+public class Tickets extends Clients {
     private String codi;
     private String tipus_facturacio;
     private String data_ticket;
@@ -10,7 +12,8 @@ public class Tickets extends FacturacioxTickets {
     private String res_codi;
 
 
-    public Tickets (String codi, String tipus_facturacio,String data_ticket, String total_tickets, String total_imposts, String fac_codi, String res_codi) {
+    public
+    Tickets (String codi, String tipus_facturacio, String data_ticket, String total_tickets, String total_imposts, String fac_codi, String res_codi) {
         this.codi = codi;
         this.tipus_facturacio = tipus_facturacio;
         this.data_ticket = data_ticket;
@@ -32,12 +35,15 @@ public class Tickets extends FacturacioxTickets {
     }
 
     public
-    String getTipus_facturacio (){return tipus_facturacio;}
+    String getTipus_facturacio ( ) {
+        return tipus_facturacio;
+    }
 
     public
-    void setTipus_facturacio(String tipus_facturacio) {
+    void setTipus_facturacio (String tipus_facturacio) {
         this.tipus_facturacio = tipus_facturacio;
     }
+
     public
     String getData_ticket ( ) {
         return data_ticket;
@@ -88,5 +94,5 @@ public class Tickets extends FacturacioxTickets {
         this.res_codi = res_codi;
     }
 
-
 }
+
