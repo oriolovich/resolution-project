@@ -14,7 +14,9 @@ public class RecomanacionsProv extends Proveidors {
     private String punts_prestigi;
 
 
-    public RecomanacionsProv (){this.codi = UUID.randomUUID().toString();
+    public RecomanacionsProv (){
+        super();
+        this.codi = UUID.randomUUID().toString();
     }
     public RecomanacionsProv(String codi, String suggerencia, String grup_codi, String punts_prestigi) {
         if(StringUtils.isEmpty(codi)){

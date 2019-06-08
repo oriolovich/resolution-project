@@ -14,9 +14,10 @@ public class SuggerimentsTreb extends Treballadors {
     private String gremi_codi;
     private String  punts_prestigi;
 
-    public SuggerimentsTreb () {this.id = UUID.randomUUID().toString();
-    }
+
+
     public SuggerimentsTreb (String id, String comentari, String treb_codi, String gremi_codi, String punts_prestigi){
+        super();
 
         if(StringUtils.isEmpty(id)) {
             id = UUID.randomUUID().toString();
