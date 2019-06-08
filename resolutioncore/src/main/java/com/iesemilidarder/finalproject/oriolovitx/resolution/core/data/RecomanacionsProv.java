@@ -8,6 +8,7 @@ import java.util.UUID;
 public class RecomanacionsProv extends Proveidors {
 
 
+    private static final Integer benefici = 10;
     private String codi;
     private String suggerencia;
     private String grup_codi;
@@ -15,10 +16,11 @@ public class RecomanacionsProv extends Proveidors {
 
 
     public RecomanacionsProv (){
-        super();
+        super(benefici);
         this.codi = UUID.randomUUID().toString();
     }
     public RecomanacionsProv(String codi, String suggerencia, String grup_codi, String punts_prestigi) {
+        super(benefici);
         if(StringUtils.isEmpty(codi)){
             codi = UUID.randomUUID().toString();
         }

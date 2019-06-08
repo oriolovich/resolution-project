@@ -11,4 +11,7 @@ class Tickets extends Comandes {
     Tickets ( ) {
 
     }
+
+    private String percentatgeBenefici;
+    private Integer Benefici;
 }

@@ -1,7 +1,5 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 
-import org.springframework.stereotype.Service;
-
 public class Proveidors extends Tickets {
 
     private String codi_prov;
@@ -9,6 +7,8 @@ public class Proveidors extends Tickets {
     private String NomEmpresa;
     private String tipus;
     private Double experiencia;
+    private Double percentatgeBenefici;
+    private Integer Benefici;
 
 
     public
@@ -17,8 +17,9 @@ public class Proveidors extends Tickets {
     }
 
     public
-    Proveidors ( ) {
+    Proveidors (Integer benefici) {
 
+        Benefici = benefici;
     }
 }
 
