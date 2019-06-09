@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.UUID;
 
-public abstract class Restaurants  {
+public abstract class Restaurants {
 
 
     private String codi;
