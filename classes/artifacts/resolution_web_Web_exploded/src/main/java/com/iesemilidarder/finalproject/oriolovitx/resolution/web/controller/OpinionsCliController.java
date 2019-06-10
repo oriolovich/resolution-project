@@ -1,10 +1,8 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.web.controller;
 
-import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.Clients;
 import com.iesemilidarder.finalproject.oriolovitx.resolution.core.data.OpinionsCli;
 import com.iesemilidarder.finalproject.oriolovitx.resolution.web.service.OpinionsCliService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,10 +20,18 @@ public class OpinionsCliController {
 
     /*Opinions per id*/
     @RequestMapping("/opinionsCli/{id}")
-    public OpinionsCli getOpinionsCli ( ) {
-        return getOpinionsCli();
-    }
+    public OpinionsCli getOpinionsCli (String id) {
+        try {
+            if (id == null) {
+                return null;
+            }
+            return getAllOpinionsCli().stream().filter(o -> o.getId().equals(id)).findFirst().get();
+        } catch (Exception e){
+            return null;
+        }
 
+
+    }
 
 
     /*Afegeix opinions*/
