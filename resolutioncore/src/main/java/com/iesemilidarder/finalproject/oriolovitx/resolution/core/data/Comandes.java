@@ -7,9 +7,7 @@ public class Comandes extends Clients {
     private String tipus_facturacio;
     private String data_ticket;
     private String total_tickets;
-    private String total_imposts;
-    private String fac_codi;
-    private String res_codi;
+
 
 
     public
@@ -18,9 +16,9 @@ public class Comandes extends Clients {
         this.tipus_facturacio = tipus_facturacio;
         this.data_ticket = data_ticket;
         this.total_tickets = total_tickets;
-        this.total_imposts = total_imposts;
-        this.fac_codi = fac_codi;
-        this.res_codi = res_codi;
+
+
+
     }
 
     public
@@ -69,35 +67,6 @@ public class Comandes extends Clients {
         this.total_tickets = total_tickets;
     }
 
-    public
-    String getTotal_imposts ( ) {
-        return total_imposts;
-    }
-
-    public
-    void setTotal_imposts (String total_imposts) {
-        this.total_imposts = total_imposts;
-    }
-
-    public
-    String getFac_codi ( ) {
-        return fac_codi;
-    }
-
-    public
-    void setFac_codi (String fac_codi) {
-        this.fac_codi = fac_codi;
-    }
-
-    public
-    String getRes_codi ( ) {
-        return res_codi;
-    }
-
-    public
-    void setRes_codi (String res_codi) {
-        this.res_codi = res_codi;
-    }
 
 }
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.ListIterator;
 
 @RestController
 public class OpinionsCliController {
@@ -15,7 +16,8 @@ public class OpinionsCliController {
 
     /*Totes les opinions*/
     @RequestMapping("/opinionsCli")
-    public List<OpinionsCli> getAllOpinionsCli(){ return opinionsCliService.getAllOpinionsCli();
+    public
+    List <OpinionsCli> getAllOpinionsCli(){ return opinionsCliService.getAllOpinionsCli();
     }
 
     /*Opinions per id*/
