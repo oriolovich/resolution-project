@@ -4,7 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.UUID;
 
 
-public class  OpinionsCli extends Clients{
+public class  OpinionsCli extends Clients implements Restauracio{
     private String id;
     private String observacio;
     private String puntuacio;
