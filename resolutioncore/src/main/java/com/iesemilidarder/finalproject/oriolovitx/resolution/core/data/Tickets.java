@@ -3,7 +3,7 @@ package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 public abstract  class Tickets extends Restaurants implements Restauracio{
 
         public
-        Tickets (String codi, String data_ticket, String descripció, String fac_codi,String res_codi, String prov_codi, String unitats) {
+        Tickets (String codi, String data_ticket, String descripció, String fac_codi) {
 
         }
 
@@ -35,16 +35,16 @@ public abstract  class Tickets extends Restaurants implements Restauracio{
         private String data_ticket;
 
         public
-        String getDescripció ( ) {
-                return descripció;
+        String getDescripcio ( ) {
+                return descripcio;
         }
 
         public
-        void setDescripció (String descripció) {
-                this.descripció = descripció;
+        void setDescripcio (String descripcio) {
+                this.descripcio = descripcio;
         }
 
-        private String descripció;
+        private String descripcio;
 
         public
         String getFac_codi ( ) {
