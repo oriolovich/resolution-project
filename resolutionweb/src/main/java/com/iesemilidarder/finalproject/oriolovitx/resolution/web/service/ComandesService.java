@@ -13,7 +13,7 @@ import java.util.ListIterator;
 
 @Service
 public class ComandesService {
-    public List <Comandes> findAll(String tickets) {
+    public List <Comandes> findAll(String comandes) {
         List <Comandes> comandesList = null;
         return comandesList;
     }

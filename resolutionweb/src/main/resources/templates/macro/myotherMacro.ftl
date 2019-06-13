@@ -30,7 +30,7 @@
       <div class="container">
           <div class="row">
               <div class="col-xl-9 mx-auto">
-                  <h4 class="mb-3">CERCADOR D'OPINIONS DE CLIENTS</h4>
+                  <h4 class="mb-3">CERCADOR D'OPINIONS DE PROVEÏDORS</h4>
               </div>
               <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                   <form action="/opinionsCli/search" method="POST">
