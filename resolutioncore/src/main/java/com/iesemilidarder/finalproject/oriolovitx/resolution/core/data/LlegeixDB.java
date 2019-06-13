@@ -2,8 +2,7 @@ package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.MySQLConnection;
-import oracle.net.aso.e;
-
+import com.mysql.jdbc.exceptions.MySQLDataException;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,9 +11,7 @@ import java.time.temporal.WeekFields;
 import java.util.ArrayList;
 
 public
-class LlegeixDB extends OpinionsCli{
-
-    private Object MySQLException;
+class LlegeixDB extends OpinionsCli {
 
     public
     ArrayList LlegeixOpinionsCli (String search) throws ClassNotFoundException, SQLException {
@@ -25,7 +22,7 @@ class LlegeixDB extends OpinionsCli{
             con = (Connection) DriverManager.getConnection("jdbc:mysql:localhost:3306", "system", "system");
 
             PreparedStatement stmt;
-               if ((search! = null) && !search.equals("")){
+            if ((search != null) && !search.equals("")) {
 
                 stmt = con.prepareStatement("select * from ( select O.OPI_CODI, O.OPI_OBSERVACIO, O.OPI_PUNTUACIO, O.OPI_OPINIO_REVISDA, O.OPI_RES_CODI, O.OPI_CLI_CODI) where ROWNUM <=5");
 
@@ -44,13 +41,14 @@ class LlegeixDB extends OpinionsCli{
                     rts.setOprevisada(opinio_revisada);
                     rts.setRestcodi(codi_res);
                     rts.setUscodi(codi_cli);
+
                 }
                 stmt.close();
                 con.close();
-        }catch (MySQLException e) {
-                     System.out.println(e.toString());
             }
-            return array1;
-
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return array1;
     }
 }

@@ -7,6 +7,11 @@ public abstract  class Tickets extends Restaurants implements Restauracio{
 
         }
 
+        public
+        Tickets ( ) {
+
+        }
+
 
         @Override
         public

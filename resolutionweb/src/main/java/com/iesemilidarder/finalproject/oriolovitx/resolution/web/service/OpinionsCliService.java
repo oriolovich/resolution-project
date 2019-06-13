@@ -11,9 +11,9 @@ import java.util.List;
 public class OpinionsCliService {
 
      /* ArrayList d'objectes de la classe "Network"*/
-     public
-     List <OpinionsCli> findAll ( ) {
-          return null;
+     public List <OpinionsCli> findAll(String opinionsCLi) {
+          List <OpinionsCli> opinionsCliList = null;
+          return opinionsCliList;
      }
 
      public

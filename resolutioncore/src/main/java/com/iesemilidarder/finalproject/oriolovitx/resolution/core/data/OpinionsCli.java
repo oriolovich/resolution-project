@@ -1,6 +1,8 @@
 package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
 import java.util.UUID;
 
 
@@ -85,6 +87,7 @@ public class  OpinionsCli extends Clients implements Restauracio{
     void setUscodi (String uscodi) {
         this.clicodi = uscodi;
     }
+
 
 }
 

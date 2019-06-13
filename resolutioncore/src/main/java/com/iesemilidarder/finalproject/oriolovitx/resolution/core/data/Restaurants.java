@@ -2,6 +2,7 @@ package com.iesemilidarder.finalproject.oriolovitx.resolution.core.data;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public abstract class Restaurants implements Restauracio{
@@ -95,5 +96,6 @@ public abstract class Restaurants implements Restauracio{
     public void setTrs_codi (String trs_codi) {
         this.trs_codi = trs_codi;
     }
+
 
 }
