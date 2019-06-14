@@ -91,20 +91,7 @@
                     <li><a class="text-muted" href="#">Afegeix</a></li>
                 </ul>
             </div>
-            <div class="col-6 col-md">
-                <h5>Proveïdors</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Edita</a></li>
-                    <li><a class="text-muted" href="#">Afegeix</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Treballadors</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Edita</a></li>
-                    <li><a class="text-muted" href="#">Afegeix</a></li>
-                </ul>
-            </div>
+
             <div class="col-6 col-md">
                 <h5>¿Qui som?</h5>
                 <ul class="list-unstyled text-small">

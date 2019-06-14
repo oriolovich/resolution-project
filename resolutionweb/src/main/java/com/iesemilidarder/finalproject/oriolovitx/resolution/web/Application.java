@@ -24,8 +24,10 @@ public class Application extends SpringApplicationBuilder{
                     System.exit(0);
                 }catch (SecurityException e) {
                     System.out.println("Exit failed.");
-                }finally {
-                    System.out.println();
+
+                }
+                finally {
+                    System.out.println("ok");
                 }
             }
 
