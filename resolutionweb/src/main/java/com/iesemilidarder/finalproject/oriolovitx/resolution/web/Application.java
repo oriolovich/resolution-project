@@ -12,27 +12,15 @@ public class Application extends SpringApplicationBuilder{
 
 
 
-            public static void main (String[] args) {
-
-                System.setSecurityManager(new SecurityManager(){
-                    @Override
-                    public void checkExit(int stattus){
-                        throw new ThreadDeath();
-                     }
-                });
-                try {
-                    System.exit(0);
-                }catch (SecurityException e) {
-                    System.out.println("Exit failed.");
-
-                }
-                finally {
-                    System.out.println("ok");
-                }
+            public static void main (String[] args){
+                SpringApplication.run(Application.class, args);
             }
+}
 
 
-        }
+
+
+
 
 
 

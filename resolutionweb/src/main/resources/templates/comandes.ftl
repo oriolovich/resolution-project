@@ -5,30 +5,29 @@
 <body>
 <@holamacro.navbar></@holamacro.navbar>
 <div class="container">
-        <#if opinionsCli??>
+        <#if comandes??>
             <h5>Totes les opinions dels clients</h5>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">codi</th>
-                    <th scope="col">observació</th>
-                    <th scope="col">opinió revisada</th>
+                    <th scope="col">data_ticket</th>
+                    <th scope="col">descripcio</th>
                     <th scope="col">Actualizar</th>
                     <th scope="col">Eliminar</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>${product.id}</td>
-                    <td>${product.name}</td>
-                    <td>${product.description}</td>
-                    <td>${product.price}</td>
-                    <td><a href="/product/${product.id}/update">Editar</a></td>
-                    <td><a href="/product/delete/${product.id}">Eliminar</a></td>
+                    <td>${comandes.codi}</td>
+                    <td>${comandes.data_ticket}</td>
+                    <td>${comandes.descripcio}</td>
+                    <td><a href="/comandes/${comandes.codi}/update">Editeu</a></td>
+                    <td><a href="/comandes/delete/${product.id}">Elimineu</a></td>
                 </tr>
                 </tbody>
             </table>
-        <#else><h2>Evento no encontrado</h2></#if>
+        <#else><h2>Comanda no trobada</h2></#if>
 </div>
 <@holamacro.optional></@holamacro.optional>
 </body>

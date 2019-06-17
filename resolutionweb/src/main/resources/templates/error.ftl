@@ -1,6 +1,6 @@
 <#import "macro/myMacro.ftl" as holamacro>
 <!doctype html>
-<html lang="es">
+<html lang="ca">
 <@holamacro.head></@holamacro.head>
 <body>
 <@holamacro.navbar></@holamacro.navbar>
@@ -11,7 +11,7 @@
                 <div class="col-md-12 text-center">
                     <span class="display-1 d-block">404</span>
                     <div class="mb-4 lead"> Pàgina no localitzable.</div>
-                    <a href="/" class="btn btn-link">Torna al inici</a>
+                    <a href="/" class="btn btn-link">Torneu al inici</a>
                 </div>
             </div>
         </div>

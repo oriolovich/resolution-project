@@ -5,24 +5,24 @@
 <body>
 <@holamacro.navbar></@holamacro.navbar>
 <div class="container">
-    <h5> Opinions per a tots els gustos</h5>
+    <h5> Si vols trobar una Comanda introdueix el codi</h5>
     <table class="table table-striped">
         <thead>
         <tr>
 				<th scope="col">codi</th>
-            <th scope="col">observacio</th>
-            <th scope="col">oprevisada</th>
-            <th scope="col">Edita</th>
-            <th scope="col">Elimina</th>
+            <th scope="col">data_ticket</th>
+            <th scope="col">descripcio</th>
+            <th scope="col">Editeu</th>
+            <th scope="col">Elimineu</th>
         </tr>
         </thead>
-    <#list model["opinionscli"] as opinionsCli>
+    <#list model["comandes"] as comandes>
   	<tr>
-        <td>${opinionsCli.codi}</td>
-        <td>${opinionsCli.observacio}</td>
-        <td>${opinionsCli.oprevisada}</td>
-        <td><a href="/opinionsCli/${opinionsCli.id}/update">Edita</a></td>
-        <td><a href="/opinionsCli/delete/${opinionsCli.id}">Elimina</a></td>
+        <td>${comandes.codi}</td>
+        <td>${comandes.data_ticket}</td>
+        <td>${comandes.descripcio}</td>
+        <td><a href="/opinionsCli/${comandes.codi}/update">Edita</a></td>
+        <td><a href="/opinionsCli/delete/${comandes.codi}">Elimina</a></td>
     </tr>
     </#list>
     </table>

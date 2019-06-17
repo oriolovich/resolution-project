@@ -6,6 +6,7 @@
 <@holamacro.navbar></@holamacro.navbar>
 <@holamacro.finder></@holamacro.finder>
 <@holamacro.printOpinionsCli></@holamacro.printOpinionsCli>
+<@holamacro.printComandes></@holamacro.printComandes>
 <@holamacro.footer></@holamacro.footer>
 <@holamacro.optional></@holamacro.optional>
 </body>
